@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adarsh Public School</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    <!-- Google Fonts poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="navbar-logo">
+                <img src="images/logo.jpg" alt="School Logo" />
+                <h1>Adarsh Public School</h1>
+            </div>
+
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="about.html"><i class="fas fa-school"></i> About</a>
+                <a href="classes.html"><i class="fas fa-book"></i> Classes</a>
+                <a href="facilities.html"><i class="fas fa-tools"></i> Facilities</a>
+                <a href="gallery.html"><i class="fas fa-image"></i> Gallery</a>
+                <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        <!-- Carousel -->
+        <section class="carousel">
+            <div class="carousel-container">
+                <div class="slides">
+                    <div class="slide active"
+                        style="background-image: url('https://images.pexels.com/photos/2982449/pexels-photo-2982449.jpeg?auto=compress&cs=tinysrgb&w=600')">
+                        <div class="text">Welcome to Adarsh Public School</div>
+                    </div>
+                    <div class="slide"
+                        style="background-image: url('https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=600')">
+                        <div class="text">Learning with Joy</div>
+                    </div>
+                    <div class="slide"
+                        style="background-image: url('https://images.pexels.com/photos/256395/pexels-photo-256395.jpeg?auto=compress&cs=tinysrgb&w=600')">
+                        <div class="text">Smart Classrooms</div>
+                    </div>
+                    <div class="slide"
+                        style="background-image: url('https://images.pexels.com/photos/32399930/pexels-photo-32399930/free-photo-of-joyful-outdoor-play-with-kids-and-teacher.jpeg?auto=compress&cs=tinysrgb&w=600')">
+                        <div class="text">Dedicated Teachers</div>
+                    </div>
+                    <div class="slide"
+                        style="background-image: url('https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=600')">
+                        <div class="text">Play and Learn</div>
+                    </div>
+                    <div class="slide"
+                        style="background-image: url('https://images.pexels.com/photos/2831794/pexels-photo-2831794.jpeg?auto=compress&cs=tinysrgb&w=600')">
+                        <div class="text">Bright Future Starts Here</div>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="next"><i class="fas fa-chevron-right"></i></button>
+
+                <!-- Dots -->
+                <div class="dots"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JS -->
+    <script src="app.js"></script>
+</body>
+
+</html>
