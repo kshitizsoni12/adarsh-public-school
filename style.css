@@ -21,7 +21,7 @@ header {
 
 .navbar {
     /* max-width: 1200px; */
-    margin: 0 2rem;
+    margin: 0 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -89,6 +89,19 @@ header {
         background-color: #4A90E2;
         margin-top: 10px;
         border-radius: 8px;
+    }
+
+    .navbar-logo img {
+        height: 35px;
+    }
+
+    .navbar-logo h1 {
+        font-size: 1.2rem;
+    }
+
+    .navbar {
+        /* max-width: 1200px; */
+        margin: 0;
     }
 
     .nav-links.active {
