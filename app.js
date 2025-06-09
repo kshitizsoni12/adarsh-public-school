@@ -6,65 +6,91 @@ function toggleMenu() {
 
 // carousel
 function sliderinit() {
+
+    const slidesWrapper = document.querySelector('.slides');
     const slides = document.querySelectorAll('.slide');
-    const dotsContainer = document.querySelector('.dots');
     const nextBtn = document.querySelector('.next');
     const prevBtn = document.querySelector('.prev');
+    const dotsContainer = document.querySelector('.dots');
 
-    let currentIndex = 0;
-    let slideInterval;
+    const totalRealSlides = slides.length - 2; // subtract 2 clones
+    let currentIndex = 1; // Start at first real slide
+    let interval;
 
-    function showSlide(index) {
-        const slidesWrapper = document.querySelector('.slides');
-        slidesWrapper.style.transform = `translateX(-${index * 100}%)`;
+    // Set slide width based on total slides
+    slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-        // Set active dot
-        document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
-        dotsContainer.children[index].classList.add('active');
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-    }
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
-    }
-
-    // Generate dots
-    slides.forEach((_, idx) => {
+    // ✅ Create Dots
+    for (let i = 0; i < totalRealSlides; i++) {
         const dot = document.createElement('div');
         dot.classList.add('dot');
-        if (idx === 0) dot.classList.add('active');
+        if (i === 0) dot.classList.add('active');
         dot.addEventListener('click', () => {
-            currentIndex = idx;
-            showSlide(currentIndex);
-            resetInterval();
+            currentIndex = i + 1; // offset due to clone
+            moveToSlide();
+            resetAutoSlide();
         });
         dotsContainer.appendChild(dot);
-    });
+    }
 
+    // ✅ Move to current slide
+    function moveToSlide() {
+        slidesWrapper.style.transition = 'transform 0.5s ease-in-out';
+        slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateDots();
+    }
+
+    // ✅ Update Dots
+    function updateDots() {
+        document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+        if (currentIndex > 0 && currentIndex <= totalRealSlides)
+            dotsContainer.children[currentIndex - 1].classList.add('active');
+    }
+
+    // ✅ Handle next/prev buttons
     nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetInterval();
+        if (currentIndex >= slides.length - 1) return;
+        currentIndex++;
+        moveToSlide();
+        resetAutoSlide();
     });
+
     prevBtn.addEventListener('click', () => {
-        prevSlide();
-        resetInterval();
+        if (currentIndex <= 0) return;
+        currentIndex--;
+        moveToSlide();
+        resetAutoSlide();
     });
 
-    // Auto slide
-    function startSlide() {
-        slideInterval = setInterval(nextSlide, 5000);
-    }
-    function resetInterval() {
-        clearInterval(slideInterval);
-        startSlide();
+    // ✅ Looping logic after transition ends
+    slidesWrapper.addEventListener('transitionend', () => {
+        if (slides[currentIndex].innerHTML === slides[0].innerHTML) {
+            slidesWrapper.style.transition = 'none';
+            currentIndex = totalRealSlides;
+            slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        } else if (slides[currentIndex].innerHTML === slides[slides.length - 1].innerHTML) {
+            slidesWrapper.style.transition = 'none';
+            currentIndex = 1;
+            slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    });
+
+    // ✅ Auto slide
+    function startAutoSlide() {
+        interval = setInterval(() => {
+            currentIndex++;
+            moveToSlide();
+        }, 4000);
     }
 
-    showSlide(currentIndex);
-    startSlide();
+    function resetAutoSlide() {
+        clearInterval(interval);
+        startAutoSlide();
+    }
+
+    // ✅ Initialize
+    startAutoSlide();
+
 }
 
 sliderinit();
