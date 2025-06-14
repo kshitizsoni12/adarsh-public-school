@@ -29,11 +29,11 @@
 
 <body>
 
-    <header>
+    <header class="dark-header">
         <div class="navbar">
             <div class="navbar-logo">
                 <img src="images/logo.jpg" alt="School Logo" />
-                <h1>Adarsh Public School</h1>
+
             </div>
 
             <div class="menu-toggle" onclick="toggleMenu()">
@@ -53,6 +53,36 @@
 
 
     <main>
+        <!-- hero section -->
+        <div class="home-hero">
+            <div class="hero-content">
+                <h1>Adarsh Public School</h1>
+                <p>Nurturing Young Minds in Nature’s Lap</p>
+                <a href="#about" class="hero-btn">Explore More</a>
+            </div>
+        </div>
+
+        <!-- ABOUT SECTION -->
+        <section class="about-section">
+            <div class="about-container">
+                <div class="about-image diagonal-card">
+                    <img src="images/school-front.jpg" alt="Adarsh Public School" />
+                </div>
+                <div class="about-content">
+                    <h2>About Us</h2>
+                    <p>
+                        Adarsh Public School is a co-educational primary institution nestled in the heart of rural
+                        Chhattisgarh. We educate children from Nursery to Grade 8 with a focus on creativity, care, and
+                        value-based learning.
+                        <br><br>
+                        Our mission is to deliver affordable, high-quality education in a safe and nurturing
+                        environment—empowering every child in our village and nearby areas to dream, learn, and grow.
+                    </p>
+                    <a href="about.html" class="learn-btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
         <!-- Carousel -->
         <section class="carousel">
             <div class="carousel-container">
@@ -64,8 +94,7 @@
                     </div>
 
                     <!-- Real Slides -->
-                    <div class="slide"
-                        style="background-image: url('https://images.pexels.com/photos/2982449/pexels-photo-2982449.jpeg?auto=compress&cs=tinysrgb&w=600')">
+                    <div class="slide" style="background-image: url('images/school-carousel.jpg')">
                         <div class="text">Welcome to Adarsh Public School</div>
                     </div>
                     <div class="slide"
@@ -87,8 +116,7 @@
 
 
                     <!-- Clone of first slide -->
-                    <div class="slide"
-                        style="background-image: url('https://images.pexels.com/photos/2982449/pexels-photo-2982449.jpeg?auto=compress&cs=tinysrgb&w=600')">
+                    <div class="slide" style="background-image: url('images/school-carousel.jpg')">
                         <div class="text">Welcome to Adarsh Public School</div>
                     </div>
                 </div>
@@ -102,26 +130,7 @@
             </div>
         </section>
 
-        <!-- ABOUT SECTION -->
-        <section class="about-section">
-            <div class="about-container">
-                <div class="about-image">
-                    <img src="images/school-front.jpg" alt="Adarsh Public School" />
-                </div>
-                <div class="about-content">
-                    <h2>About Us</h2>
-                    <p>
-                        Adarsh Public School is a co-educational primary institution nestled in the heart of rural
-                        Chhattisgarh. We educate children from Nursery to Grade 8 with a focus on creativity, care, and
-                        value-based learning.
-                        <br><br>
-                        Our mission is to deliver affordable, high-quality education in a safe and nurturing
-                        environment—empowering every child in our village and nearby areas to dream, learn, and grow.
-                    </p>
-                    <a href="about.html" class="learn-btn">Learn More</a>
-                </div>
-            </div>
-        </section>
+
 
 
 
@@ -133,7 +142,7 @@
 
             <!-- Get In Touch -->
             <div class="footer-section">
-                <h2>Get In Touch</h2>
+                <h2><a href="contact.html">Get In Touch</a></h2>
                 <p><i class="fas fa-map-marker-alt"></i> 123 Street, New York, USA</p>
                 <p><i class="fas fa-phone"></i> +012 345 67890</p>
                 <p><i class="fas fa-envelope"></i> info@example.com</p>
@@ -159,7 +168,7 @@
 
             <!-- Photo Gallery -->
             <div class="footer-section">
-                <h2>Photo Gallery</h2>
+                <h2><a href="gallery.html">Photo Gallery</a></h2>
                 <div class="gallery">
                     <div class="upper-gallery">
                         <img src="images/footerimg/classes-1.jpg" alt="Gallery 1">

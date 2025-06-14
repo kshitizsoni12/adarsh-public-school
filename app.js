@@ -94,3 +94,18 @@ function sliderinit() {
 }
 
 sliderinit();
+
+
+// code to change navbarcolor acc. to background
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+    const vh100 = window.innerHeight;
+    if (window.scrollY > vh100) {
+        header.classList.add("light-header");
+        header.classList.remove("dark-header");
+    } else {
+        header.classList.add("dark-header");
+        header.classList.remove("light-header");
+    }
+});
