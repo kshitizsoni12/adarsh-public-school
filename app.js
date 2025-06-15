@@ -4,101 +4,83 @@ function toggleMenu() {
 }
 
 
-// carousel
-function sliderinit() {
+// carousel with sliding image and text
+const slideTexts = [
+    {
+        heading: "Welcome to Adarsh Public School",
+        paragraph: "We are committed to providing quality education with love and care, helping children grow in a safe and joyful environment."
+    },
+    {
+        heading: "Learning with Nature and Play",
+        paragraph: "Children explore the world around them with fun activities and outdoor learning."
+    },
+    {
+        heading: "Smart Classes for Smarter Kids",
+        paragraph: "Our classrooms are equipped with digital tools to make learning engaging and modern."
+    },
+    {
+        heading: "Our Teachers, Our Strength",
+        paragraph: "Trained and loving teachers guide every student with personal care and attention."
+    },
+    {
+        heading: "Creative Minds Begin Here",
+        paragraph: "From drawing to drama, we nurture creativity from an early age."
+    }
+];
 
-    const slidesWrapper = document.querySelector('.slides');
-    const slides = document.querySelectorAll('.slide');
-    const nextBtn = document.querySelector('.next');
-    const prevBtn = document.querySelector('.prev');
-    const dotsContainer = document.querySelector('.dots');
+const slidesWrapper = document.querySelector(".slides");
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+const dotsContainer = document.querySelector(".dots");
+const heading = document.getElementById("carousel-heading");
+const paragraph = document.getElementById("carousel-paragraph");
 
-    const totalRealSlides = slides.length - 2; // subtract 2 clones
-    let currentIndex = 1; // Start at first real slide
-    let interval;
+let currentIndex = 0;
 
-    // Set slide width based on total slides
+function updateSlide() {
     slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    heading.textContent = slideTexts[currentIndex].heading;
+    paragraph.textContent = slideTexts[currentIndex].paragraph;
+    updateDots();
+}
 
-    // ✅ Create Dots
-    for (let i = 0; i < totalRealSlides; i++) {
+function updateDots() {
+    document.querySelectorAll('.dot').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentIndex);
+    });
+}
+
+function createDots() {
+    for (let i = 0; i < slides.length; i++) {
         const dot = document.createElement('div');
         dot.classList.add('dot');
         if (i === 0) dot.classList.add('active');
         dot.addEventListener('click', () => {
-            currentIndex = i + 1; // offset due to clone
-            moveToSlide();
-            resetAutoSlide();
+            currentIndex = i;
+            updateSlide();
         });
         dotsContainer.appendChild(dot);
     }
-
-    // ✅ Move to current slide
-    function moveToSlide() {
-        slidesWrapper.style.transition = 'transform 0.5s ease-in-out';
-        slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-        updateDots();
-    }
-
-    // ✅ Update Dots
-    function updateDots() {
-        document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
-        if (currentIndex > 0 && currentIndex <= totalRealSlides)
-            dotsContainer.children[currentIndex - 1].classList.add('active');
-    }
-
-    // ✅ Handle next/prev buttons
-    nextBtn.addEventListener('click', () => {
-        if (currentIndex >= slides.length - 1) return;
-        currentIndex++;
-        moveToSlide();
-        resetAutoSlide();
-    });
-
-    prevBtn.addEventListener('click', () => {
-        if (currentIndex <= 0) return;
-        currentIndex--;
-        moveToSlide();
-        resetAutoSlide();
-    });
-
-    // ✅ Looping logic after transition ends
-    slidesWrapper.addEventListener('transitionend', () => {
-        if (slides[currentIndex].innerHTML === slides[0].innerHTML) {
-            slidesWrapper.style.transition = 'none';
-            currentIndex = totalRealSlides;
-            slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-        } else if (slides[currentIndex].innerHTML === slides[slides.length - 1].innerHTML) {
-            slidesWrapper.style.transition = 'none';
-            currentIndex = 1;
-            slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-    });
-
-    // ✅ Auto slide
-    function startAutoSlide() {
-        interval = setInterval(() => {
-            currentIndex++;
-            moveToSlide();
-        }, 4000);
-    }
-
-    function resetAutoSlide() {
-        clearInterval(interval);
-        startAutoSlide();
-    }
-
-    // ✅ Initialize
-    startAutoSlide();
-
 }
 
-sliderinit();
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlide();
+});
+
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlide();
+});
+
+createDots();
+updateSlide();
+
 
 
 // code to change navbarcolor acc. to background
 const header = document.querySelector("header");
-
 window.addEventListener("scroll", () => {
     const vh100 = window.innerHeight;
     if (window.scrollY > vh100) {

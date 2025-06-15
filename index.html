@@ -20,6 +20,12 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
 
+    <!-- montserrate -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -50,7 +56,6 @@
             </nav>
         </div>
     </header>
-
 
     <main>
         <!-- hero section -->
@@ -83,50 +88,39 @@
             </div>
         </section>
 
-        <!-- Carousel -->
-        <section class="carousel">
-            <div class="carousel-container">
-                <div class="slides">
-                    <!-- Clone of last slide (5th image) -->
-                    <div class="slide"
-                        style="background-image: url('https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=600')">
-                        <div class="text">Play and Learn</div>
-                    </div>
-
-                    <!-- Real Slides -->
-                    <div class="slide" style="background-image: url('images/school-carousel.jpg')">
-                        <div class="text">Welcome to Adarsh Public School</div>
-                    </div>
-                    <div class="slide"
-                        style="background-image: url('https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=600')">
-                        <div class="text">Learning with Nature and Play.</div>
-                    </div>
-                    <div class="slide"
-                        style="background-image: url('https://images.pexels.com/photos/256395/pexels-photo-256395.jpeg?auto=compress&cs=tinysrgb&w=600')">
-                        <div class="text">Smart Classes for Smarter Kids</div>
-                    </div>
-                    <div class="slide"
-                        style="background-image: url('https://images.pexels.com/photos/32399930/pexels-photo-32399930/free-photo-of-joyful-outdoor-play-with-kids-and-teacher.jpeg?auto=compress&cs=tinysrgb&w=600')">
-                        <div class="text">Our Teachers, Our Strength</div>
-                    </div>
-                    <div class="slide"
-                        style="background-image: url('https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=600')">
-                        <div class="text">Creative Minds Begin Here.</div>
-                    </div>
-
-
-                    <!-- Clone of first slide -->
-                    <div class="slide" style="background-image: url('images/school-carousel.jpg')">
-                        <div class="text">Welcome to Adarsh Public School</div>
-                    </div>
+        <!-- carousel with  sliding text and image -->
+        <section class="linked-carousel-section">
+            <div class="linked-carousel-container">
+                <!-- Left: Text Content -->
+                <div class="carousel-text">
+                    <h2 id="carousel-heading">Welcome to Adarsh Public School</h2>
+                    <p id="carousel-paragraph">We are committed to providing quality education with love and care,
+                        helping children grow in a safe and joyful environment.</p>
                 </div>
 
-                <!-- Buttons -->
-                <button class="prev"><i class="fas fa-chevron-left"></i></button>
-                <button class="next"><i class="fas fa-chevron-right"></i></button>
-
-                <!-- Dots -->
-                <div class="dots"></div>
+                <!-- Right: Image Carousel -->
+                <div class="carousel-wrapper">
+                    <div class="slides">
+                        <div class="slide">
+                            <img src="images/school-carousel.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="images/school-front.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="images/school-carousel.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="images/school-carousel.jpg" alt="">
+                        </div>
+                        <div class="slide">
+                            <img src="images/school-carousel.jpg" alt="">
+                        </div>
+                    </div>
+                    <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="dots"></div>
+                </div>
             </div>
         </section>
 
