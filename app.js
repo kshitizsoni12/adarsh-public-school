@@ -82,7 +82,7 @@ function slidingcarousel() {
     setInterval(() => {
         currentIndex = (currentIndex + 1) % slides.length;
         updateSlide();
-    }, 4000);
+    }, 5000);
 
 }
 slidingcarousel();

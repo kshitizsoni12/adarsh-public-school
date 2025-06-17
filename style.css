@@ -734,10 +734,12 @@ header.dark-header .nav-links a:hover {
 
 /* Contact Section Styling */
 .contact-section {
-    background-image: url("images/solarsystem.avif");
+    background-image: url("images/saturn.png"), url("images/squarriel.png");
     padding: 2rem 1rem;
-    background-size: cover;
-    min-height: 80vh;
+    background-size: contain, contain;
+    background-position: left center, right center;
+    min-height: 60vh;
+    background-repeat: no-repeat, no-repeat;
 }
 
 .contact-container {
@@ -760,9 +762,11 @@ header.dark-header .nav-links a:hover {
     flex-direction: column;
     gap: 2rem;
     justify-content: center;
+    width: 100%;
 }
 
 .info-box {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -779,6 +783,15 @@ header.dark-header .nav-links a:hover {
     font-size: 20px;
     border-radius: 10px;
     transition: transform 0.3s;
+}
+
+.icon i {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .icon:hover {
@@ -809,8 +822,8 @@ header.dark-header .nav-links a:hover {
 }
 
 .contact-form h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
     color: #1a1a2e;
 }
 
@@ -863,5 +876,22 @@ header.dark-header .nav-links a:hover {
 
     .form-group {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 548px) {
+    .contact-section {
+        padding: 2rem 0rem;
+    }
+
+    .contact-container {
+        max-width: 900px;
+        width: 90%;
+
+    }
+
+    .contact-info {
+        padding: 2rem 1rem;
+        width: 100%;
     }
 }
